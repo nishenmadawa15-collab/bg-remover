@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BG Remover Pro - Remove Image Backgrounds</title>
+    <title>BG Remover Pro</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif; }
-    </style>
 </head>
 <body>
     <div id="root"></div>
 
     <script type="text/babel">
         const { useState, useRef, useEffect } = React;
-        const { Upload, Download, X, Loader2, Sparkles, Zap, RotateCw, ZoomIn, ZoomOut, Sliders } = lucide;
 
         function BackgroundRemover() {
             const [originalImage, setOriginalImage] = useState(null);
@@ -177,7 +172,7 @@
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
                                     <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                                        <Sparkles className="w-6 h-6 text-white" />
+                                        <span className="text-2xl">✨</span>
                                     </div>
                                     <span className="text-2xl font-bold text-white">BG Remover Pro</span>
                                 </div>
@@ -189,7 +184,7 @@
                         {!originalImage && (
                             <div className="text-center mb-12">
                                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500 bg-opacity-20 border border-purple-500 border-opacity-30 rounded-full text-purple-300 text-sm mb-6">
-                                    <Zap className="w-4 h-4" />
+                                    <span>⚡</span>
                                     <span>AI-Powered Background Removal</span>
                                 </div>
                                 <h1 className="text-6xl font-bold text-white mb-4 leading-tight">
@@ -210,15 +205,13 @@
                                         onDragOver={handleDrag}
                                         onDrop={handleDrop}
                                         onClick={() => fileInputRef.current?.click()}
-                                        className={`border-3 border-dashed rounded-2xl p-16 md:p-24 text-center cursor-pointer transition-all duration-300 ${
+                                        className={`border-4 border-dashed rounded-2xl p-16 md:p-24 text-center cursor-pointer transition-all duration-300 ${
                                             dragActive 
                                                 ? 'border-purple-400 bg-purple-500 bg-opacity-10 scale-105' 
                                                 : 'border-gray-600 hover:border-purple-500 hover:bg-purple-500 hover:bg-opacity-5'
                                         }`}
                                     >
-                                        <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center transform hover:scale-110 transition-transform">
-                                            <Upload className="w-10 h-10 text-white" />
-                                        </div>
+                                        <div className="text-8xl mb-6">📤</div>
                                         <p className="text-2xl font-semibold text-white mb-3">
                                             {dragActive ? 'Drop your image here' : 'Click or drag image to upload'}
                                         </p>
@@ -235,25 +228,17 @@
 
                                     <div className="grid md:grid-cols-3 gap-6 mt-12">
                                         <div className="text-center p-6 rounded-xl bg-white bg-opacity-5 border border-white border-opacity-10">
-                                            <div className="w-12 h-12 mx-auto mb-4 bg-purple-500 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                                <Zap className="w-6 h-6 text-purple-400" />
-                                            </div>
+                                            <div className="text-5xl mb-4">⚡</div>
                                             <h3 className="text-white font-semibold mb-2">Lightning Fast</h3>
                                             <p className="text-gray-400 text-sm">Process images in seconds</p>
                                         </div>
                                         <div className="text-center p-6 rounded-xl bg-white bg-opacity-5 border border-white border-opacity-10">
-                                            <div className="w-12 h-12 mx-auto mb-4 bg-pink-500 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                                <svg className="w-6 h-6 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                                </svg>
-                                            </div>
+                                            <div className="text-5xl mb-4">🎨</div>
                                             <h3 className="text-white font-semibold mb-2">High Quality</h3>
                                             <p className="text-gray-400 text-sm">Transparent PNG output</p>
                                         </div>
                                         <div className="text-center p-6 rounded-xl bg-white bg-opacity-5 border border-white border-opacity-10">
-                                            <div className="w-12 h-12 mx-auto mb-4 bg-blue-500 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                                <Sparkles className="w-6 h-6 text-blue-400" />
-                                            </div>
+                                            <div className="text-5xl mb-4">✨</div>
                                             <h3 className="text-white font-semibold mb-2">100% Free</h3>
                                             <p className="text-gray-400 text-sm">No watermarks, unlimited use</p>
                                         </div>
@@ -267,7 +252,7 @@
                                             onClick={reset}
                                             className="flex items-center gap-2 px-5 py-2.5 bg-white bg-opacity-10 hover:bg-opacity-20 text-white rounded-xl transition-all border border-white border-opacity-20"
                                         >
-                                            <X className="w-4 h-4" />
+                                            <span>❌</span>
                                             Upload New
                                         </button>
                                     </div>
@@ -282,24 +267,24 @@
                                                 <div className="flex gap-2">
                                                     <button
                                                         onClick={() => setZoom(Math.max(0.5, zoom - 0.25))}
-                                                        className="p-2 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all"
+                                                        className="px-3 py-2 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all text-white"
                                                         title="Zoom Out"
                                                     >
-                                                        <ZoomOut className="w-4 h-4 text-white" />
+                                                        🔍-
                                                     </button>
                                                     <button
                                                         onClick={() => setZoom(Math.min(3, zoom + 0.25))}
-                                                        className="p-2 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all"
+                                                        className="px-3 py-2 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all text-white"
                                                         title="Zoom In"
                                                     >
-                                                        <ZoomIn className="w-4 h-4 text-white" />
+                                                        🔍+
                                                     </button>
                                                     <button
                                                         onClick={() => setZoom(1)}
-                                                        className="p-2 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all"
+                                                        className="px-3 py-2 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg transition-all text-white"
                                                         title="Reset Zoom"
                                                     >
-                                                        <RotateCw className="w-4 h-4 text-white" />
+                                                        🔄
                                                     </button>
                                                 </div>
                                             </div>
@@ -326,7 +311,7 @@
                                                         onClick={() => setCompareMode(!compareMode)}
                                                         className="px-3 py-1.5 bg-purple-500 bg-opacity-20 hover:bg-opacity-30 text-purple-300 rounded-lg transition-all text-sm"
                                                     >
-                                                        {compareMode ? 'Exit Compare' : 'Compare'}
+                                                        {compareMode ? 'Exit Compare' : '⚖️ Compare'}
                                                     </button>
                                                 )}
                                             </div>
@@ -357,10 +342,8 @@
                                                                 className="absolute top-0 bottom-0 w-1 bg-white shadow-lg pointer-events-none"
                                                                 style={{left: `${sliderPosition}%`}}
                                                             >
-                                                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center">
-                                                                    <svg className="w-4 h-4 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                                                    </svg>
+                                                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-xl">
+                                                                    ⬍⬌
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -393,13 +376,11 @@
                                         <div className="mb-6 p-6 bg-white bg-opacity-5 rounded-xl border border-white border-opacity-10">
                                             <button
                                                 onClick={() => setShowSettings(!showSettings)}
-                                                className="flex items-center gap-2 text-white font-semibold mb-4 hover:text-purple-300 transition-colors"
+                                                className="flex items-center gap-2 text-white font-semibold mb-4 hover:text-purple-300 transition-colors w-full"
                                             >
-                                                <Sliders className="w-5 h-5" />
-                                                Advanced Settings
-                                                <svg className={`w-4 h-4 transition-transform ${showSettings ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                                </svg>
+                                                <span>⚙️</span>
+                                                <span>Advanced Settings</span>
+                                                <span className="ml-auto">{showSettings ? '▲' : '▼'}</span>
                                             </button>
                                             
                                             {showSettings && (
@@ -416,9 +397,7 @@
                                                             value={sensitivity}
                                                             onChange={(e) => setSensitivity(Number(e.target.value))}
                                                             className="w-full h-2 bg-white bg-opacity-10 rounded-lg appearance-none cursor-pointer"
-                                                            style={{
-                                                                accentColor: '#a855f7'
-                                                            }}
+                                                            style={{accentColor: '#a855f7'}}
                                                         />
                                                         <div className="flex justify-between text-xs text-gray-500 mt-1">
                                                             <span>Less Aggressive</span>
@@ -460,12 +439,12 @@
                                             >
                                                 {loading ? (
                                                     <>
-                                                        <Loader2 className="w-6 h-6 animate-spin" />
+                                                        <span className="animate-spin">⏳</span>
                                                         Processing Image...
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <Sparkles className="w-6 h-6" />
+                                                        <span>✨</span>
                                                         Remove Background
                                                     </>
                                                 )}
@@ -483,7 +462,7 @@
                                                     onClick={downloadImage}
                                                     className="flex-1 flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-semibold hover:from-green-600 hover:to-emerald-700 transition-all text-lg shadow-xl"
                                                 >
-                                                    <Download className="w-6 h-6" />
+                                                    <span>⬇️</span>
                                                     Download PNG
                                                 </button>
                                             </>
@@ -492,7 +471,7 @@
                                 </div>
                             )}
 
-                            <canvas ref={canvasRef} className="hidden" />
+                            <canvas ref={canvasRef} style={{display: 'none'}} />
                         </div>
 
                         <div className="mt-16 text-center">
